@@ -10,7 +10,9 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-add_executable(main main.cpp)
+# Source to build; watch.sh passes -DSRC=<file>.
+set(SRC main.cpp CACHE FILEPATH "Source file to build")
+add_executable(main ${SRC})
 
 target_compile_options(main PRIVATE
   -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wsign-conversion

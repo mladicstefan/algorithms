@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Watch a source file; on every save: rebuild (via CMake) and run.
-# Usage: ./watch.sh [main.cpp]
+# Usage: ./watch.sh [path/to/file.cpp]
 # Env:   BUILD_DIR=build  TARGET=main  INPUT=input.txt  TIMEOUT=5
 set -uo pipefail
 
@@ -22,7 +22,7 @@ command -v inotifywait >/dev/null || {
 dir=$(dirname -- "$FILE")
 base=$(basename -- "$FILE")
 
-cmake -S . -B "$BUILD_DIR" >/dev/null || exit 1
+cmake -S . -B "$BUILD_DIR" -DSRC="$(realpath -- "$FILE")" >/dev/null || exit 1
 
 run() {
     clear

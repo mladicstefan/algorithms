@@ -1,0 +1,37 @@
+# Build directories
+build/
+build-*/
+cmake-build-*/
+out/
+
+# CMake generated files (in-source builds)
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+CMakeUserPresets.json
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+_deps/
+Makefile
+*.ninja
+.ninja_deps
+.ninja_log
+
+# Compiled output
+*.o
+*.obj
+*.a
+*.so
+*.out
+a.out
+main
+
+# clangd / editors
+.cache/
+.clangd/
+.vscode/
+.idea/
+*.swp
