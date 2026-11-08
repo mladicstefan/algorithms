@@ -20,15 +20,15 @@ int max(vector<int> &v)
 
 int minDays(vector<int> &bloomDay, int m, int k)
 {
-    if (static_cast<long long>(m * k) > static_cast<long long>(bloomDay.size()))
+    if (static_cast<long long>(m) * k > static_cast<long long>(bloomDay.size()))
         return -1;
 
-    int lo = 1;
-    int hi = max(bloomDay);
+    long long lo = 1;
+    long long hi = max(bloomDay);
 
     while (lo < hi)
     {
-        int mid = lo + (hi - lo) / 2;
+        long long mid = lo + (hi - lo) / 2;
 
         auto it = cbegin(bloomDay);
         int bq = 0;
@@ -54,7 +54,7 @@ int minDays(vector<int> &bloomDay, int m, int k)
         else
             lo = mid + 1;
     }
-    return lo;
+    return (int)lo;
 }
 } // namespace Solution
 
